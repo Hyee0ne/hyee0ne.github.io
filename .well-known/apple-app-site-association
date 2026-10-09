@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["2Q5557H9T4.com.stillkicking.app"],
+        "components": [
+          { "/": "/stillkicking/i/*", "comment": "몸짱루틴 무소식 공간 초대" }
+        ]
+      }
+    ]
+  }
+}
