@@ -28,6 +28,10 @@
 <script>
   var t = new URLSearchParams(location.search).get('t');
   if (t) document.getElementById('open').href = 'stillkicking://i?t=' + encodeURIComponent(t);
+  // 카카오톡 인앱 브라우저는 유니버설 링크를 막으니 Safari로 넘긴다
+  if (/KAKAOTALK/i.test(navigator.userAgent)) {
+    location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href);
+  }
 </script>
 </body>
 </html>
