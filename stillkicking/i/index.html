@@ -14,13 +14,20 @@
   h1 { font-size: 28px; line-height: 1.25; margin: 0 0 12px; border-bottom: 2px solid var(--line); padding-bottom: 12px; }
   p { color: var(--muted); margin: 0 0 16px; }
   .note { font-size: 14px; }
+  .open { display: block; margin: 24px 0; padding: 14px 16px; border: 2px solid var(--line); color: var(--fg); text-decoration: none; text-align: center; font-weight: 700; }
 </style>
 </head>
 <body>
 <main>
   <h1>무소식 공간에<br>초대받았어요</h1>
-  <p>무소식이희소식(STILL KICKING) 앱이 설치되어 있으면 이 링크를 누를 때 앱이 바로 열려요.</p>
-  <p class="note">앱이 아직 없다면, 초대한 친구에게 설치 방법을 물어봐 주세요. 앱을 설치한 뒤 이 링크를 다시 누르면 들어갈 수 있어요.</p>
+  <p>무소식이희소식(STILL KICKING) 앱이 설치되어 있다면 아래 버튼을 눌러 주세요.</p>
+  <a class="open" id="open" href="stillkicking://i">앱에서 열기</a>
+  <p class="note">카카오톡 안에서 열었다면 버튼이 안 될 수 있어요. 오른쪽 아래 ⋯ 메뉴에서 “다른 브라우저로 열기”(Safari)를 누른 뒤 다시 눌러 주세요.</p>
+  <p class="note">앱이 아직 없다면, 초대한 친구에게 설치 방법을 물어봐 주세요.</p>
 </main>
+<script>
+  var t = new URLSearchParams(location.search).get('t');
+  if (t) document.getElementById('open').href = 'stillkicking://i?t=' + encodeURIComponent(t);
+</script>
 </body>
 </html>
