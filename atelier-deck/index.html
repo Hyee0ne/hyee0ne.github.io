@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>별을 입는 아뜰리에 · 게임 소개서</title>
+<meta name="description" content="종이에 그린 옷을 손님이 입고 사진 편지를 보내 주는 iPad 게임, 별을 입는 아뜰리에 소개서">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="별을 입는 아뜰리에 · 게임 소개서">
+<meta property="og:description" content="그림을 그려 옷을 입히는 iPad 게임">
+<meta property="og:image" content="https://hyee0ne.github.io/atelier-deck/images/og.jpg">
+<meta property="og:url" content="https://hyee0ne.github.io/atelier-deck/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: #2a2352; }
+  main { max-width: 1440px; margin: 0 auto; padding: 24px 16px 48px; display: flex; flex-direction: column; gap: 20px; }
+  .slide { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; box-shadow: 0 12px 36px rgba(0, 0, 0, .35); }
+  .slide > section { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; transform: scale(var(--s, .5)); box-sizing: border-box; overflow: hidden; }
+  section * { margin: 0; box-sizing: border-box; }
+  section h1 { font-size: 96px; } section h2 { font-size: 64px; } section h3 { font-size: 44px; } section p { font-size: 32px; }
+  section img { display: block; }
+  section table { border-collapse: collapse; width: 100%; }
+  section td, section th { padding: .35em .6em; border-bottom: 1px solid rgba(59, 49, 113, .18); text-align: left; }
+  section > :not([style*="position:absolute"]) { position: relative; }
+  x-shape { display: block; }
+  x-shape[kind=arrow-right] { clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+  @media (max-width: 700px) { main { padding: 12px 8px 32px; gap: 12px; } .slide { border-radius: 6px; } }
+</style>
+</head>
+<body>
+<main>
+<div class="slide"><section id="cover" data-transition="fade" style="display:flex; flex-direction:row; align-items:center; gap:56px; padding:128px; background:#eee7f7">
+  <img src="images/bg_day.jpg" alt="" style="position:absolute; left:0px; top:0px; width:1920px; height:1080px; object-fit:cover">
+  <div style="position:absolute; left:0px; top:0px; width:1920px; height:1080px; background:linear-gradient(90deg, rgba(246, 241, 252, 0.97) 0%, rgba(246, 241, 252, 0.9) 40%, rgba(246, 241, 252, 0.15) 72%, rgba(246, 241, 252, 0) 100%)"></div>
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:2px solid #dcc79a; border-radius:28px"></div>
+  <div style="width:820px; display:flex; flex-direction:column; gap:36px">
+    <img src="images/logo.png" alt="별을 입는 아뜰리에 로고" style="width:560px; height:343px; object-fit:contain">
+    <h1 style="font-family:Hahmlet, Georgia, serif; font-size:72px; font-weight:700; line-height:1.2; color:#3b3171">그림을 그려 옷을 입히는<br>iPad 게임</h1>
+    <div style="width:88px; height:3px; background:#c9a45c"></div>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:30px; color:#5e5672">게임 소개서 · 2026년 10월</p>
+  </div>
+  <div style="flex:1"></div>
+  <img src="images/screen_finish.jpg" alt="오필리아가 직접 그린 검정 새틴 드레스를 입고 무대에 선 완성 화면" style="width:720px; height:540px; object-fit:cover; border:12px solid #fffdf8; border-radius:20px; box-shadow:0 28px 64px rgba(59, 49, 113, 0.35)">
+</section></div>
+
+<div class="slide"><section id="intro" data-transition="fade" style="display:flex; flex-direction:column; gap:52px; padding:128px 128px 160px; background:linear-gradient(180deg, #f4eefb 0%, #fbf7ef 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid #e2d3b0; border-radius:28px"></div>
+  <div style="display:flex; flex-direction:column; gap:18px">
+    <h2 style="font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#3b3171">게임 개요</h2>
+    <div style="width:72px; height:3px; background:#c9a45c"></div>
+  </div>
+  <p style="font-family:Pretendard, Arial, sans-serif; font-size:34px; line-height:1.6; color:#3b3171">마을 사람들이 옷을 부탁하러 공방을 찾아옵니다.<br>플레이어가 손님의 사연을 듣고 종이에 옷을 그리면, 별가루 마법으로 실제 옷이 완성됩니다.<br>옷을 입은 손님은 감사 편지를 보내옵니다.</p>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px">
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">장르</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">스토리 · 그리기 · 옷 입히기</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">기기</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">iPad 전용 · 가로 화면<br>Apple Pencil과 손가락 모두 지원</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">출시</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">2026년 10월 8일<br>한국 App Store</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">가격</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">무료 다운로드</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">연령 · 언어</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">4+ · 한국어, 영어</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; padding:34px 36px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:600; color:#8a6c32">옷 제작 방식</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:32px; font-weight:600; line-height:1.4; color:#3b3171">그린 그림을 바탕으로<br>생성형 AI가 제작</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#8a6c32">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#8a7fa0">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="loop" data-transition="fade" style="display:flex; flex-direction:column; gap:44px; padding:128px 128px 160px; background:linear-gradient(180deg, #f4eefb 0%, #fbf7ef 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid #e2d3b0; border-radius:28px"></div>
+  <div style="display:flex; flex-direction:column; gap:18px">
+    <h2 style="font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#3b3171">진행 방식</h2>
+    <div style="width:72px; height:3px; background:#c9a45c"></div>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px">
+    <div style="display:flex; flex-direction:row; align-items:center; gap:28px; padding:24px; background:#fffdf8; border:1px solid #eadfc8; border-radius:22px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <img loading="lazy" src="images/screen_talk.jpg" alt="권도윤과의 첫 대화 화면" style="width:320px; height:240px; object-fit:cover; border-radius:14px">
+      <div style="flex:1; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+          <p style="width:44px; height:44px; font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:700; line-height:44px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">1</p>
+          <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">사연 듣기</h3>
+        </div>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">데뷔탕트 하루 전 찢긴 드레스, 전 남자 친구의 결혼식에 입고 갈 옷 등 다양한 스토리가 준비되어 있습니다.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; align-items:center; gap:28px; padding:24px; background:#fffdf8; border:1px solid #eadfc8; border-radius:22px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <img loading="lazy" src="images/screen_draw.jpg" alt="종이 위에 초록 풍선 원피스를 그린 그리기 화면" style="width:320px; height:240px; object-fit:cover; border-radius:14px">
+      <div style="flex:1; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+          <p style="width:44px; height:44px; font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:700; line-height:44px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">2</p>
+          <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">옷 그리기</h3>
+        </div>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">크레용·사인펜·물감으로 도안 위에 칠하거나 빈 종이에 자유롭게 그립니다.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; align-items:center; gap:28px; padding:24px; background:#fffdf8; border:1px solid #eadfc8; border-radius:22px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <img loading="lazy" src="images/screen_mix.jpg" alt="초승달 그릇에 별가루를 섞는 화면" style="width:320px; height:240px; object-fit:cover; border-radius:14px">
+      <div style="flex:1; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+          <p style="width:44px; height:44px; font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:700; line-height:44px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">3</p>
+          <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">색과 천 고르기</h3>
+        </div>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">별가루를 섞어 새로운 색을 만들고, 스웨이드·비단·가죽·털 질감을 입힙니다.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; align-items:center; gap:28px; padding:24px; background:#fffdf8; border:1px solid #eadfc8; border-radius:22px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <img loading="lazy" src="images/screen_finish.jpg" alt="손님이 완성된 옷을 입고 무대에 선 화면" style="width:320px; height:240px; object-fit:cover; border-radius:14px">
+      <div style="flex:1; display:flex; flex-direction:column; gap:12px">
+        <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+          <p style="width:44px; height:44px; font-family:Pretendard, Arial, sans-serif; font-size:24px; font-weight:700; line-height:44px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">4</p>
+          <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">손님 착용</h3>
+        </div>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">완성된 옷을 입은 손님이 무대에 섭니다. 이야기의 마지막에는 사진 편지가 도착합니다.</p>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#8a6c32">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#8a7fa0">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="guests" data-transition="fade" style="display:flex; flex-direction:column; gap:32px; padding:128px 128px 160px; background:linear-gradient(180deg, #f4eefb 0%, #fbf7ef 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid #e2d3b0; border-radius:28px"></div>
+  <div style="display:flex; flex-direction:column; gap:18px">
+    <h2 style="font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#3b3171">등장 손님</h2>
+    <div style="width:72px; height:3px; background:#c9a45c"></div>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px">
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_ophelia.png" alt="오필리아 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">오필리아</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">데뷔탕트 하루 전, 새어머니에게 드레스를 잃은 공작가 영애</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_lila.png" alt="릴라 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">릴라</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">전 남자 친구의 결혼식에 하객으로 가야 하는 꽃집 주인</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_doyun.png" alt="권도윤 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">권도윤</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">엘리베이터에서 내리자 낯선 마을에 도착한 현대인</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_brienne.png" alt="브리엔 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">브리엔</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">아버지가 정한 혼담을 거절하고 집을 나선 아가씨</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_arden.png" alt="아르덴 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">아르덴</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">갑옷 대신 평범한 옷 한 벌이 필요한 기사</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_gren.png" alt="그렌 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">그렌</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">고양이에게 사랑받고 싶은 마을 대장장이</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_judith.png" alt="유디트 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">유디트</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">학술원 연회에 계약 약혼자와 동행해야 하는 연구자</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:14px; padding:22px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+      <div style="display:flex; flex-direction:row; gap:16px; align-items:center">
+        <img loading="lazy" src="images/face_cassian.png" alt="카시안 얼굴" style="width:104px; height:104px; border:3px solid #e2cf9f; border-radius:50%">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#3b3171">카시안</h3>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#5e5672">귀족 신분을 숨기고 여행자로 지내려는 도련님</p>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:36px; align-items:center; padding:14px 28px; background:rgba(255, 253, 248, 0.7); border:1px solid #eadfc8; border-radius:999px">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:28px; font-weight:700; color:#8a6c32">단편 손님</p>
+    <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+      <img loading="lazy" src="images/face_tina.png" alt="티나 얼굴" style="width:80px; height:80px; border:3px solid #e2cf9f; border-radius:50%">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">티나</p>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+      <img loading="lazy" src="images/face_noel.png" alt="노엘 얼굴" style="width:80px; height:80px; border:3px solid #e2cf9f; border-radius:50%">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">노엘</p>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+      <img loading="lazy" src="images/face_betty.png" alt="베티 얼굴" style="width:80px; height:80px; border:3px solid #e2cf9f; border-radius:50%">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">베티</p>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+      <img loading="lazy" src="images/face_margrit.png" alt="마가릿 얼굴" style="width:80px; height:80px; border:3px solid #e2cf9f; border-radius:50%">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">마가릿</p>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:12px; align-items:center">
+      <img loading="lazy" src="images/face_paola.png" alt="파올라 얼굴" style="width:80px; height:80px; border:3px solid #e2cf9f; border-radius:50%">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">파올라</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#8a6c32">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#8a7fa0">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="drawn" data-transition="fade" style="display:flex; flex-direction:column; gap:36px; padding:128px 128px 160px; background:linear-gradient(180deg, #f4eefb 0%, #fbf7ef 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid #e2d3b0; border-radius:28px"></div>
+  <div style="display:flex; flex-direction:column; gap:18px">
+    <h2 style="font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#3b3171">그림에서 사진 편지까지</h2>
+    <div style="width:72px; height:3px; background:#c9a45c"></div>
+  </div>
+  <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:flex-end">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+      <div style="display:flex; flex-direction:column; padding:24px; background:#fffdf8; border:1px solid #eadfc8; border-radius:20px; box-shadow:0 10px 28px rgba(59, 49, 113, 0.07)">
+        <img loading="lazy" src="images/mia_design.jpg" alt="도안 위에 보라 벌룬 원피스를 색칠한 그림" style="width:239px; height:400px; object-fit:contain">
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:12px">
+        <p style="width:40px; height:40px; font-family:Pretendard, Arial, sans-serif; font-size:22px; font-weight:700; line-height:40px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">1</p>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">도안에 색칠</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; justify-content:center; align-self:stretch; padding-bottom:56px">
+      <x-shape kind="arrow-right" style="width:88px; height:44px; background:#cdb6ea"></x-shape>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+      <div style="display:flex; flex-direction:column; padding:24px; background:#eee7f7; border:1px solid #e2d6f2; border-radius:20px">
+        <img loading="lazy" src="images/mia_outfit.jpg" alt="같은 보라 벌룬 원피스를 입은 미아" style="width:149px; height:400px; object-fit:contain">
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:12px">
+        <p style="width:40px; height:40px; font-family:Pretendard, Arial, sans-serif; font-size:22px; font-weight:700; line-height:40px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">2</p>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">손님이 입음</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; justify-content:center; align-self:stretch; padding-bottom:56px">
+      <x-shape kind="arrow-right" style="width:88px; height:44px; background:#cdb6ea"></x-shape>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:14px">
+      <div style="display:flex; flex-direction:column; padding:18px; background:#fffdf8; border-radius:10px; box-shadow:0 18px 44px rgba(59, 49, 113, 0.2)">
+        <img loading="lazy" src="images/mia_letter.jpg" alt="그 원피스를 입고 인형을 안은 미아의 사진 편지" style="width:600px; height:450px; object-fit:cover">
+      </div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:12px">
+        <p style="width:40px; height:40px; font-family:Pretendard, Arial, sans-serif; font-size:22px; font-weight:700; line-height:40px; text-align:center; color:#fffdf8; background:#7a4fb3; border-radius:50%">3</p>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; font-weight:600; color:#3b3171">감사 사진 편지 도착</p>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:flex-end; gap:40px">
+    <div style="display:flex; flex-direction:column; gap:4px">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">모양·색·길이·무늬가 그림 그대로 옷에 반영되고, 손님의 체형에 맞게 지어집니다.</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.5; color:#5e5672">이야기의 마지막에는 손님이 그 옷을 입고 찍은 사진이 감사 편지와 함께 도착합니다.</p>
+    </div>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#8a6c32; white-space:nowrap">실제 플레이 기록</p>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#8a6c32">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#8a7fa0">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="wardrobe" data-transition="fade" style="background:linear-gradient(160deg, #2a2352 0%, #3b3171 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid rgba(226, 207, 159, 0.55); border-radius:28px"></div>
+  <h2 style="position:absolute; top:319.94px; left:128px; width:415px; font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#f6f1fc">남녀 공용 의상</h2>
+  <div style="position:absolute; top:412px; left:128px; width:72px; height:3px; background:#c9a45c"></div>
+  <div style="position:absolute; top:250px; left:128px; width:1664px; height:608px; display:flex; flex-direction:row; gap:48px; align-items:center">
+    <div style="display:flex; flex-direction:column; gap:32px; flex:1; padding-top:160px">
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:34px; line-height:1.5; color:#f6f1fc">모든 옷은 남녀 공용으로,<br>어떤 손님에게나 입힐 수 있습니다.</p>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:28px; line-height:1.5; color:#d9cfef">같은 옷을 입은 두 사람입니다.<br>남성의 옷을 여성이, 여성의 옷을 남성이 입을 수 있습니다.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; padding:24px; background:#fffdf8; border:2px solid #e2cf9f; border-radius:24px; box-shadow:0 20px 48px rgba(10, 6, 30, 0.45)">
+      <img loading="lazy" src="images/pair_sed_mia.jpg" alt="같은 흰 망토 제복을 입은 세드와 미아" style="width:388px; height:560px; object-fit:contain">
+    </div>
+    <div style="display:flex; flex-direction:column; padding:24px; background:#fffdf8; border:2px solid #e2cf9f; border-radius:24px; box-shadow:0 20px 48px rgba(10, 6, 30, 0.45)">
+      <img loading="lazy" src="images/pair_noel_ophelia.jpg" alt="같은 자보 셔츠와 바지를 입은 노엘과 오필리아" style="width:388px; height:560px; object-fit:contain">
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#e2cf9f">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#b9aed6">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="halloween" data-transition="fade" style="display:flex; flex-direction:column; gap:40px; padding:128px 128px 160px; background:linear-gradient(160deg, #241d45 0%, #3a2a5c 60%, #4a2f4f 100%)">
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid rgba(226, 207, 159, 0.55); border-radius:28px"></div>
+  <div style="display:flex; flex-direction:row; align-items:flex-end; gap:32px">
+    <div style="display:flex; flex-direction:column; gap:18px">
+      <h2 style="font-family:Hahmlet, Georgia, serif; font-size:64px; font-weight:700; line-height:1.15; color:#f6f1fc">할로윈 이벤트</h2>
+      <div style="width:72px; height:3px; background:#c9a45c"></div>
+    </div>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:28px; font-weight:600; color:#2a2352; background:#f3dfb0; padding:8px 22px; border-radius:999px">10월 31일까지 · 특별 손님 4명</p>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:56px; align-items:stretch">
+    <img loading="lazy" src="images/halloween.jpg" alt="할로윈 축제 거리에 선 특별 손님 넷, 실반·미아·세드·케인" style="width:820px; height:574px; object-fit:cover; border:10px solid #fffdf8; border-radius:18px; box-shadow:0 24px 56px rgba(10, 6, 30, 0.5)">
+    <div style="display:flex; flex-direction:column; justify-content:space-between; flex:1">
+      <div style="display:flex; flex-direction:column; gap:6px; padding-left:22px; border-left:3px solid #c9a45c">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#f3dfb0">미아</h3>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#e6def6">늘 안고 다니는 인형과 처음으로 축제에 가는 소녀</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; padding-left:22px; border-left:3px solid #c9a45c">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#f3dfb0">실반</h3>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#e6def6">귀가 드러나는 것을 무릅쓰고 무도회에 가는 늑대인간</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; padding-left:22px; border-left:3px solid #c9a45c">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#f3dfb0">세드</h3>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#e6def6">낮에만 여는 빵집에 직접 가 보고 싶은 뱀파이어</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; padding-left:22px; border-left:3px solid #c9a45c">
+        <h3 style="font-family:Hahmlet, Georgia, serif; font-size:34px; font-weight:700; color:#f3dfb0">케인</h3>
+        <p style="font-family:Pretendard, Arial, sans-serif; font-size:26px; line-height:1.45; color:#e6def6">사탕을 나눠 주기만 하다 처음으로 받으러 나서는 호박 머리 신사</p>
+      </div>
+      <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; line-height:1.45; color:#b9aed6">할로윈 시즌 한정 이벤트입니다.</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between">
+    <p style="font-family:Hahmlet, Georgia, serif; font-size:24px; font-weight:600; color:#e2cf9f">별을 입는 아뜰리에</p>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:24px; color:#b9aed6">게임 소개서 · 2026.10</p>
+  </div>
+</section></div>
+
+<div class="slide"><section id="contact" data-transition="fade" style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:128px; background:#2a2352">
+  <img loading="lazy" src="images/bg_dusk.jpg" alt="" style="position:absolute; left:0px; top:0px; width:1920px; height:1080px; object-fit:cover">
+  <div style="position:absolute; left:0px; top:0px; width:1920px; height:1080px; background:rgba(36, 29, 69, 0.45)"></div>
+  <div style="position:absolute; left:40px; top:40px; right:40px; bottom:40px; border:1.5px solid rgba(226, 207, 159, 0.7); border-radius:28px"></div>
+  <div style="width:1080px; display:flex; flex-direction:column; align-items:center; gap:28px; padding:56px 72px; background:rgba(255, 253, 248, 0.96); border:2px solid #e2cf9f; border-radius:28px; box-shadow:0 28px 64px rgba(10, 6, 30, 0.45)">
+    <img loading="lazy" src="images/logo.png" alt="별을 입는 아뜰리에 로고" style="width:340px; height:208px; object-fit:contain">
+    <table style="font-family:Pretendard, Arial, sans-serif; font-size:30px; color:#3b3171">
+      <tr><td style="width:32%; color:#8a6c32">앱스토어</td><td style="width:68%">별을 입는 아뜰리에</td></tr>
+      <tr><td style="color:#8a6c32">X</td><td>@star_atelier_</td></tr>
+      <tr><td style="color:#8a6c32">메일</td><td>ricecookey.official@gmail.com</td></tr>
+      <tr><td style="color:#8a6c32">보내는 사람</td><td>라이스쿠키</td></tr>
+    </table>
+    <p style="font-family:Pretendard, Arial, sans-serif; font-size:28px; line-height:1.5; color:#5e5672; text-align:center">읽어 주셔서 감사합니다. 문의 사항은 편하게 연락 주시면 감사하겠습니다.</p>
+  </div>
+</section></div>
+
+</main>
+<script>
+  function fit() {
+    document.querySelectorAll('.slide').forEach(function (w) { w.style.setProperty('--s', w.clientWidth / 1920); });
+  }
+  window.addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
