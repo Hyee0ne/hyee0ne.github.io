@@ -103,6 +103,7 @@
   .letter h2 { font-family: Hahmlet, serif; font-size: 17px; margin: 0 0 4px; text-align: center; }
   .search { font-size: 13px; color: var(--soft); text-align: center; margin: 4px 0 0; line-height: 1.5; }
   .search b { color: var(--ink); }
+  .foot { text-align: center; font-size: 12px; color: var(--soft); opacity: .75; padding: 4px 16px 24px; }   /* 맨 아래 저작권 (10/21) */
   .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; font-size: 14px; opacity: 0; transition: opacity .2s; pointer-events: none; text-align: center; }
   .toast.on { opacity: 1; }
 
@@ -151,6 +152,7 @@
     <p>아이패드 카메라로 찍으면 바로 열려요</p>
   </div>
 </main>
+<footer class="foot">© 2026 라이스쿠키</footer>
 <div class="toast" id="toast"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 <script>
