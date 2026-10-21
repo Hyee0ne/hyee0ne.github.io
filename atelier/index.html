@@ -21,7 +21,7 @@
     var q = new URLSearchParams(location.search);
     var CT = /^[A-Za-z0-9_.-]{1,40}$/.test(q.get("ct") || "") ? q.get("ct") : "x_post";
     var VIA = /^[a-z]{1,8}$/.test(q.get("via") || "") ? q.get("via") : "";
-    window.__ct = CT;
+    window.__ct = CT; window.__ctv = CT;
     var SCT = (VIA === "qr" || VIA === "share") ? (CT + "_" + VIA).slice(0, 40) : CT;   // 서버 store_ct 와 같은 규칙
     window.__store = "https://apps.apple.com/kr/app/apple-store/id6813819414?pt=129108053&ct=" + encodeURIComponent(SCT) + "&mt=8";
     window.__self = location.origin + location.pathname;
@@ -140,6 +140,12 @@
     <div class="slide"><img src="t2.jpg" alt="그 코트를 입고 무대에 선 세드"><span class="cap"><i>2</i>손님이 입어요</span></div>
     <div class="slide"><img src="t3.jpg" alt="코트를 입고 양산을 든 채 빵집 문을 여는 세드의 사진 편지"><span class="cap"><i>3</i>사진 편지가 와요</span></div>
     </div>
+    <script>
+      (function () { var ct = window.__ctv; if (!/syl/i.test(ct)) return;
+        var alts = ["물감과 꽃 옆, 종이에 그린 실반의 장미색 조끼와 승마 바지 도안", "그 옷을 입고 무대에 선 실반", "그 옷을 입고 무도회장 테라스에서 손을 내미는 실반의 사진 편지"];
+        var imgs = document.querySelectorAll("#track img"); for (var i = 0; i < imgs.length; i++) { imgs[i].src = imgs[i].getAttribute("src").replace(/t(\d)\.jpg$/, "u$1.jpg"); imgs[i].alt = alts[i]; }
+        window.__cards = "syl"; })();
+    </script>
     <div class="dots" id="dots"><button aria-label="1번째 그림"></button><button aria-label="2번째 그림"></button><button aria-label="3번째 그림"></button></div>
     <span class="spark" style="left:14px;top:14px">✦</span>
     <span class="spark" style="right:22px;top:40px;animation-delay:1.1s;font-size:11px">✦</span>
