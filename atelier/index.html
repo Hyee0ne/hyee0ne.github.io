@@ -25,6 +25,8 @@
     var SCT = (VIA === "qr" || VIA === "share") ? (CT + "_" + VIA).slice(0, 40) : CT;   // 서버 store_ct 와 같은 규칙
     window.__store = "https://apps.apple.com/kr/app/apple-store/id6813819414?pt=129108053&ct=" + encodeURIComponent(SCT) + "&mt=8";
     window.__self = location.origin + location.pathname;
+    // QR 에는 앱스토어 링크를 바로 (아이패드 카메라가 앱스토어 앱을 곧장 연다, 10/22). 꼬리표 ct=<ct>_qr
+    window.__storeQr = "https://apps.apple.com/kr/app/apple-store/id6813819414?pt=129108053&ct=" + encodeURIComponent((CT + "_qr").slice(0, 40)) + "&mt=8";
     var ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     var ipad = /iPad/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     var ia = /Instagram/.test(ua) ? "instagram" : /FBAN|FBAV|FB_IAB/.test(ua) ? "facebook" : /KAKAOTALK/.test(ua) ? "kakao"
@@ -151,7 +153,7 @@
   </button>
   <div class="qr" id="qr">
     <div id="qrBox"></div>
-    <p>아이패드 카메라로 찍으면 바로 열려요</p>
+    <p>아이패드 카메라로 찍으면 앱스토어가 바로 열려요</p>
   </div>
 </main>
 <footer class="foot">© 2026 RiceCookey</footer>
@@ -162,7 +164,7 @@
   document.getElementById("storeLink").href = window.__store;
   // 컴퓨터에서만 QR 을 그린다 (아이패드 카메라로 찍는다)
   if (window.__dev === "desktop" && window.qrcode) {
-    var qr = qrcode(0, "M"); qr.addData(window.__self + "?ct=" + encodeURIComponent(window.__ct) + "&via=qr"); qr.make();
+    var qr = qrcode(0, "M"); qr.addData(window.__storeQr); qr.make();
     document.getElementById("qrBox").innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2 })
       .replace(/fill="black"|fill="#000000"/g, 'fill="#3B3171"');
   }
