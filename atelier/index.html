@@ -34,7 +34,7 @@
       : ios && !/Safari\//.test(ua) ? "webview" : /Safari\//.test(ua) ? "safari" : "other";
     window.__dev = ipad ? "ipad" : /iPhone|iPod/.test(ua) ? "iphone" : /Android/.test(ua) ? "android" : "desktop";
     window.__beacon = function (k, extra) {
-      try { fetch("https://atelier-go-zudqsaysna-du.a.run.app/e?k=" + k + "&ct=" + encodeURIComponent(CT) + "&via=" + VIA + "&pg=gh5&d=" + window.__dev + "&ia=" + ia + (extra || ""), { keepalive: true, mode: "no-cors" }); } catch (e) {}
+      try { fetch("https://atelier-go-zudqsaysna-du.a.run.app/e?k=" + k + "&ct=" + encodeURIComponent(CT) + "&via=" + VIA + "&pg=gh6&d=" + window.__dev + "&ia=" + ia + (extra || ""), { keepalive: true, mode: "no-cors" }); } catch (e) {}
     };
     var cls = [window.__dev, "ia-" + ia, navigator.share ? "can-share" : "no-share"];
     if (ia !== "safari" && ia !== "chrome" && ia !== "other") cls.push("inapp");
@@ -93,16 +93,13 @@
   .row { display: flex; gap: 10px; }
   .row .btn { flex: 1; }
   .tip { display: none; background: var(--ink); color: #fff; border-radius: 14px; padding: 10px 14px; font-size: 13px; line-height: 1.5; text-align: center; }
-  .qr { display: none; background: #fff; border-radius: 18px; padding: 18px; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--line); }
+  .qr { display: flex; background: #fff; border-radius: 18px; padding: 18px; flex-direction: column; align-items: center; gap: 8px; border: 1px solid var(--line); }
   .qr svg { width: 156px; height: 156px; }
   .qr p { margin: 0; font-size: 14px; color: var(--soft); }
   .qr.on { display: flex; }
   .handoff { display: none; font-size: 13px; line-height: 1.5; color: var(--soft); text-align: center; margin: 0; }
-  /* 10/23: 폰으로 들어온 사람에게 '아이패드 게임'을 먼저 알리고, 보내기 말고 직접 검색하는 길도 둔다 */
+  /* 10/23: 폰으로 들어온 사람에게 '아이패드 게임'을 먼저 알린다 */
   .only { align-self: center; margin: 0 0 -4px; padding: 6px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--accent); }
-  .alt { display: flex; flex-direction: column; gap: 8px; margin-top: -4px; }
-  .alt p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--soft); text-align: center; }
-  .alt b { color: var(--ink); }
   /* 대사형 광고(ct 에 dlg)로 들어오면 광고 카드 넷을 보여 준다 — 카드 안에 글이 있어 설명 띠는 빼고, 점은 위로.
      카드 아래 행동 띠는 눌리지 않는 가짜 버튼처럼 보여 그림에서 잘라 냈다(d1~d4.jpg) */
   html.cards-dlg .cap { display: none; }
@@ -173,10 +170,6 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
     내 아이패드로 보내기
   </button>
-  <div class="alt">
-    <p>아이패드 앱스토어에서 <b>별을 입는 아뜰리에</b>를 검색해도 돼요</p>
-    <button class="btn ghost" id="copyname">이름 복사하기</button>
-  </div>
   <div class="qr" id="qr">
     <div id="qrBox"></div>
     <p>아이패드 카메라로 찍으면 앱스토어가 바로 열려요</p>
@@ -188,8 +181,8 @@
 <script>
   var SHARE_URL = window.__self + "?ct=" + encodeURIComponent(window.__ct) + "&via=share";
   document.getElementById("storeLink").href = window.__store;
-  // 컴퓨터에서만 QR 을 그린다 (아이패드 카메라로 찍는다)
-  if (window.__dev === "desktop" && window.qrcode) {
+  // 아이패드가 아니면 QR 을 그린다 — 폰 화면에 뜬 QR 도 아이패드 카메라로 찍으면 된다 (10/24 사용자: 보내기 + QR 만)
+  if (window.__dev !== "ipad" && window.qrcode) {
     var qr = qrcode(0, "M"); qr.addData(window.__storeQr); qr.make();
     document.getElementById("qrBox").innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2 })
       .replace(/fill="black"|fill="#000000"/g, 'fill="#3B3171"');
@@ -226,12 +219,6 @@
     if (navigator.share) {
       navigator.share({ title: "별을 입는 아뜰리에", url: SHARE_URL }).then(function () { beacon("shared"); }, function () {});
     } else { copy(); }
-  };
-  document.getElementById("copyname").onclick = function () {
-    beacon("copyname");
-    var name = "별을 입는 아뜰리에", done = function () { toast("복사했어요. 아이패드 앱스토어 검색창에 붙여 넣으세요"); };
-    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(name).then(done, function () { prompt("이 이름을 복사하세요", name); }); }
-    else { prompt("이 이름을 복사하세요", name); }
   };
 </script>
 </body>
