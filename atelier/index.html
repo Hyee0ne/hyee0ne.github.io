@@ -34,7 +34,7 @@
       : ios && !/Safari\//.test(ua) ? "webview" : /Safari\//.test(ua) ? "safari" : "other";
     window.__dev = ipad ? "ipad" : /iPhone|iPod/.test(ua) ? "iphone" : /Android/.test(ua) ? "android" : "desktop";
     window.__beacon = function (k, extra) {
-      try { fetch("https://atelier-go-zudqsaysna-du.a.run.app/e?k=" + k + "&ct=" + encodeURIComponent(CT) + "&via=" + VIA + "&pg=gh&d=" + window.__dev + "&ia=" + ia + (extra || ""), { keepalive: true, mode: "no-cors" }); } catch (e) {}
+      try { fetch("https://atelier-go-zudqsaysna-du.a.run.app/e?k=" + k + "&ct=" + encodeURIComponent(CT) + "&via=" + VIA + "&pg=gh5&d=" + window.__dev + "&ia=" + ia + (extra || ""), { keepalive: true, mode: "no-cors" }); } catch (e) {}
     };
     var cls = [window.__dev, "ia-" + ia, navigator.share ? "can-share" : "no-share"];
     if (ia !== "safari" && ia !== "chrome" && ia !== "other") cls.push("inapp");
@@ -98,6 +98,15 @@
   .qr p { margin: 0; font-size: 14px; color: var(--soft); }
   .qr.on { display: flex; }
   .handoff { display: none; font-size: 13px; line-height: 1.5; color: var(--soft); text-align: center; margin: 0; }
+  /* 10/23: 폰으로 들어온 사람에게 '아이패드 게임'을 먼저 알리고, 보내기 말고 직접 검색하는 길도 둔다 */
+  .only { align-self: center; margin: 0 0 -4px; padding: 6px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 700; color: var(--accent); }
+  .alt { display: flex; flex-direction: column; gap: 8px; margin-top: -4px; }
+  .alt p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--soft); text-align: center; }
+  .alt b { color: var(--ink); }
+  /* 대사형 광고(ct 에 dlg)로 들어오면 광고 카드 넷을 보여 준다 — 카드 안에 글이 있어 설명 띠는 빼고, 점은 위로.
+     카드 아래 행동 띠는 눌리지 않는 가짜 버튼처럼 보여 그림에서 잘라 냈다(d1~d4.jpg) */
+  html.cards-dlg .cap { display: none; }
+  html.cards-dlg .dots { top: 10px; bottom: auto; }
 
   /* 지금 아이패드가 없어요: 앱의 편지지처럼 */
   .letter { margin-top: 12px; background: var(--cream); border-radius: 18px; padding: 22px 18px 18px; display: flex; flex-direction: column; gap: 10px;
@@ -134,6 +143,7 @@
 
 <main class="phone">
   <p class="tip">오른쪽 위 ⋯ 에서 ‘외부 브라우저로 열기’를 누르면<br>아이패드로 보내기가 쉬워요</p>
+  <p class="only">아이패드에서 하는 게임이에요</p>
   <div class="stage">
     <div class="track" id="track">
     <div class="slide"><img src="t1.jpg" alt="물감과 꽃 옆, 종이에 그린 세드의 검은 후드 코트 도안"><span class="cap"><i>1</i>종이에 그려요</span></div>
@@ -145,6 +155,12 @@
         var alts = ["물감과 꽃 옆, 종이에 그린 실반의 장미색 조끼와 승마 바지 도안", "그 옷을 입고 무대에 선 실반", "그 옷을 입고 무도회장 테라스에서 손을 내미는 실반의 사진 편지"];
         var imgs = document.querySelectorAll("#track img"); for (var i = 0; i < imgs.length; i++) { imgs[i].src = imgs[i].getAttribute("src").replace(/t(\d)\.jpg$/, "u$1.jpg"); imgs[i].alt = alts[i]; }
         window.__cards = "syl"; })();
+      (function () { var ct = window.__ctv; if (!/dlg/i.test(ct)) return;
+        var cards = [["d1", "집을 나온 브리엔"], ["d2", "드레스가 찢긴 오필리아"], ["d3", "투구를 벗기로 한 아르덴"], ["d4", "엘리베이터에서 내리니 이세계였던 권도윤"]];
+        var base = document.querySelector("#track img").getAttribute("src").replace(/t1\.jpg$/, "");
+        document.getElementById("track").innerHTML = cards.map(function (c) { return '<div class="slide"><img src="' + base + c[0] + '.jpg" alt="' + c[1] + '"></div>'; }).join("");
+        document.documentElement.classList.add("cards-dlg");
+        window.__cards = "dlg"; })();
     </script>
     <div class="dots" id="dots"><button aria-label="1번째 그림"></button><button aria-label="2번째 그림"></button><button aria-label="3번째 그림"></button></div>
     <span class="spark" style="left:14px;top:14px">✦</span>
@@ -157,6 +173,10 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>
     내 아이패드로 보내기
   </button>
+  <div class="alt">
+    <p>아이패드 앱스토어에서 <b>별을 입는 아뜰리에</b>를 검색해도 돼요</p>
+    <button class="btn ghost" id="copyname">이름 복사하기</button>
+  </div>
   <div class="qr" id="qr">
     <div id="qrBox"></div>
     <p>아이패드 카메라로 찍으면 앱스토어가 바로 열려요</p>
@@ -179,7 +199,9 @@
   if (window.__dev !== "ipad") beacon("env", "&sh=" + (navigator.share ? 1 : 0));
   // 슬라이드: 넘긴 자리에 맞춰 점을 켜고, 가만히 두면 3.2초마다 다음 장. 손을 대면 6초 쉰다
   (function () {
-    var track = document.getElementById("track"), dots = document.querySelectorAll("#dots button"), n = dots.length, idx = 0, rest = 0;
+    var track = document.getElementById("track"), box = document.getElementById("dots"), slides = track.querySelectorAll(".slide").length;
+    if (box.children.length !== slides) { var h = ""; for (var j = 0; j < slides; j++) h += '<button aria-label="' + (j + 1) + '번째 그림"></button>'; box.innerHTML = h; }   // 대사형 카드는 넷
+    var dots = box.querySelectorAll("button"), n = dots.length, idx = 0, rest = 0;
     var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     function mark(i) { idx = i; for (var k = 0; k < n; k++) dots[k].classList.toggle("on", k === i); }
     function go(i) { track.scrollTo({ left: track.clientWidth * i, behavior: still ? "auto" : "smooth" }); mark(i); }
@@ -204,6 +226,12 @@
     if (navigator.share) {
       navigator.share({ title: "별을 입는 아뜰리에", url: SHARE_URL }).then(function () { beacon("shared"); }, function () {});
     } else { copy(); }
+  };
+  document.getElementById("copyname").onclick = function () {
+    beacon("copyname");
+    var name = "별을 입는 아뜰리에", done = function () { toast("복사했어요. 아이패드 앱스토어 검색창에 붙여 넣으세요"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(name).then(done, function () { prompt("이 이름을 복사하세요", name); }); }
+    else { prompt("이 이름을 복사하세요", name); }
   };
 </script>
 </body>
